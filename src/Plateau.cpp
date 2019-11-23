@@ -5,17 +5,20 @@ Plateau::Plateau()
     ifstream fichier("assets/boards/test.board"); // ouverture en mode lecture
     // test.board a 10*7 cases
     char c;
+
     // si le fichier est bien ouvert
-    if (fichier.is_open())
+    if (fichier)
     {
-        cout << "Pas prout cette fois" << endl;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < 7; j++)
+            vector<char> v;
+            // 10 cases + 1 retour à la ligne
+            for (int j = 0; j < 11; j++)
             {
                 fichier.get(c);
-                plateau.at(i).push_back(c);
+                v.push_back(c);
             }
+            plateau.push_back(v);
         }
     }
 
