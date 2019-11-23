@@ -7,6 +7,6 @@ int main()
 {
     cout << "Game !" << endl;
     Plateau p;
-    cout << p << endl;
+    cout << p ;
     return 0;
 }

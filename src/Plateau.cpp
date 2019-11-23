@@ -2,27 +2,33 @@
 
 Plateau::Plateau()
 {
-    ifstream fichier("assets/boards/test.board"); // ouverture en mode lecture
-    // test.board a 10*7 cases
-    char c;
+    ifstream fichier("assets/boards/test2.board"); // ouverture en mode lecture
 
-    // si le fichier est bien ouvert
+    char c;
+    // on récupère la taille du fcihier pour savoir quand on arrive à la fin
+    fichier.seekg(0, ios::end);
+    int taille = fichier.tellg();
+    fichier.seekg(0, ios::beg);
+    // si le fichier est ouvert
     if (fichier)
     {
-        for (int i = 0; i < 7; i++)
+        while(fichier.tellg() != taille)
         {
             vector<char> v;
-            // 10 cases + 1 retour à la ligne
-            for (int j = 0; j < 11; j++)
+
+            while(c!='\n')
             {
                 fichier.get(c);
-                v.push_back(c);
+                if (c!='\n')
+                    v.push_back(c);
             }
+            c =' ';
             plateau.push_back(v);
         }
     }
 
     // si le fichier n'est pas bien ouvert ce qui est actuellement le cas
+    // non, maintenant ça marche !!
     else
     {
         cout << "Prout" << endl;
@@ -34,9 +40,8 @@ ostream &operator<<(ostream &out, Plateau p)
     for (int i = 0; i < p.plateau.size(); i++)
     {
         for (int j = 0; j < p.plateau.at(i).size(); j++)
-        {
             out << p.plateau.at(i).at(j);
-        }
+        out << endl;
     }
     return out;
 }
