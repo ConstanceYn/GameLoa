@@ -1,8 +1,9 @@
 #include "Plateau.hpp"
 
-Plateau::Plateau()
+
+Plateau::Plateau(string chemin)
 {
-    ifstream fichier("assets/boards/test2.board"); // ouverture en mode lecture
+    ifstream fichier(chemin); // ouverture en mode lecture
 
     char c;
     // on récupère la taille du fcihier pour savoir quand on arrive à la fin

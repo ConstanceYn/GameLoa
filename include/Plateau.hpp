@@ -14,7 +14,7 @@ private:
     // char pour l'instant, on modifiera plus tard en Case
 
 public:
-    Plateau ();
+    Plateau (string chemin);
     //virtual ~Plateau ();
     friend ostream& operator<<(ostream &out, Plateau p);
 };
