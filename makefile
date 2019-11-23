@@ -9,11 +9,11 @@ TARGET_GAME		:= game
 INCLUDE  := -Iinclude/
 DEPS     := $(wildcard src/*.hpp src/*/*.hpp src/*/*/*.hpp src/*/*/*/*.hpp)
 SRC_GAME :=                       \
-	$(filter-out src/creator.cpp, $(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp src/*/*/*/*.cpp))         \
+	$(filter-out src/Creator.cpp, $(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp src/*/*/*/*.cpp))         \
 
 OBJECTS_GAME := $(SRC_GAME:%.cpp=$(OBJ_DIR)/%.o)
 SRC_CREATOR :=                       \
-	$(filter-out src/game.cpp, $(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp src/*/*/*/*.cpp))         \
+	$(filter-out src/Game.cpp, $(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp src/*/*/*/*.cpp))         \
 
 OBJECTS_CREATOR := $(SRC_CREATOR:%.cpp=$(OBJ_DIR)/%.o)
 
