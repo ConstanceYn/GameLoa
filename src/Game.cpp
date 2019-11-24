@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     cout << "Game !" << endl;
-    Plateau p {"assets/boards/test2.board"};
+    Plateau p {"assets/boards/testCreation.board"};
     cout << p ;
     return 0;
 }

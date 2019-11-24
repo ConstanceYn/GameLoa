@@ -40,8 +40,8 @@ ostream &operator<<(ostream &out, Plateau p)
 {
     for (int i = 0; i < p.plateau.size(); i++)
     {
-        for (int j = 0; j < p.plateau.at(i).size(); j++)
-            out << p.plateau.at(i).at(j);
+        for (int j = 0; j < p.plateau[i].size(); j++)
+            out << p.plateau[i][j];
         out << endl;
     }
     return out;
