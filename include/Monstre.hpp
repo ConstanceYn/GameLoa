@@ -3,8 +3,6 @@
 
 #include "Pion.hpp"
 
-using namespace std;
-
 class Monstre : public Pion{
 private:
     // je sais pas

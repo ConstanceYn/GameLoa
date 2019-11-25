@@ -3,8 +3,6 @@
 
 #include "Pion.hpp"
 
-using namespace std;
-
 class Chargeur : public Pion {
 private:
     // je sais pas

@@ -3,8 +3,6 @@
 
 #include "Case.hpp"
 
-using namespace std;
-
 class Porte : public Case {
 private:
     bool ouverte;

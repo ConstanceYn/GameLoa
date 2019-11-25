@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 class Plateau {
 private:
     vector<vector<char>> plateau;

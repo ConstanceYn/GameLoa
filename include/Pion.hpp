@@ -1,6 +1,8 @@
 #ifndef PION
 #define PION
 
+#include <iostream>
+
 using namespace std;
 
 class Pion {

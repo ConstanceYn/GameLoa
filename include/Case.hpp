@@ -2,9 +2,6 @@
 #define CASE
 
 #include "Pion.hpp"
-#include <iostream>
-
-using namespace std;
 
 class Case {
 protected :

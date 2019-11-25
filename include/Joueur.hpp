@@ -3,9 +3,6 @@
 
 #include "Pion.hpp"
 
-
-using namespace std;
-
 class Joueur : public Pion{
 private:
     int nbDiam;
