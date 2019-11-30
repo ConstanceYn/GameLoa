@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -21,8 +21,7 @@ char parse(int n);
 
 int main(int argc, char const *argv[])
 {
-    cout << "Creation !" << endl;
-    cout << endl;
+    cout << "Creation !" << endl << endl;
 
     string chemin = "assets/boards/";
     string nom;
@@ -48,7 +47,7 @@ int main(int argc, char const *argv[])
         newPlateau(fichier);
         i++;
         cout << endl;
-        cout << "Voulez vous faire un nouveau plateau ? (o/n)";
+        cout << "Voulez vous faire un nouveau plateau ? (o/n) ";
         cin >> c;
         continuer = (c == 'o');
     }
@@ -120,7 +119,7 @@ void newPlateau(string str)
         cout << "ordonnée (0 à "<< y-1 <<") = ";
         cin >> j;
         p[j][i] = symbole;
-        
+
         afficher(p);
         cout << "Voulez vous continuer de modifier le plateau ? (o/n) ";
         cin >> c;

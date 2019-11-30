@@ -1,22 +1,28 @@
 #ifndef JEUX
 #define JEUX
 
+#include <string>
 #include "Plateau.hpp"
 #include "Joueur.hpp"
 
+using namespace std;
+
 class Jeux {
 private:
-    // Réflechir à comment créer un ensemble de Plateau
-    // Est ce que ça fonctionne par dossier ?
-    //   Idée (bonne ou mauvaise je ne sais pas) : 1 sous dossier "dossier" de board = 1 jeux
-    //                                           et les plateaux s'appelle "dossier_n" avec n le numero du niveau
+    // 1 sous dossier "dossier" de board = 1 jeux
+    //      et les plateaux s'appelle "dossiern" avec n le numero du niveau
+    string nom;
     vector<Plateau> plateaux;
-    Joueur joueur;
+    // Le joueur est en commentaire pour que ça marche ^^
+    //Joueur joueur;
 
 public:
-    Jeux ();
+    Jeux (string str);
     //virtual ~Jeux ();
+    friend ostream& operator<<(ostream &out, Jeux j);
 };
+
+ostream& operator<<(ostream &out, Jeux j);
 
 
 #endif
