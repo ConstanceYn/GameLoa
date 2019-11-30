@@ -1,6 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
+#include <bits/stdc++.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 using namespace std;
 
@@ -10,19 +14,47 @@ void afficher(vector<vector<char>> v);
 
 
 // crée un fichier plateau à partir des entrées consoles
-void newPlateau();
-void newFile(vector<vector<char>> v);
+void newPlateau(string str);
+void newFile(vector<vector<char>> v, string str);
 char parse(int n);
 
 
-int main()
+int main(int argc, char const *argv[])
 {
     cout << "Creation !" << endl;
     cout << endl;
-    newPlateau();
+
+    string chemin = "assets/boards/";
+    string nom;
+    if (argc >=2)
+        nom = argv[1];
+    else
+        nom = "testCreation";
+
+    chemin += nom;
+
+    string fichier;
+    int i = 1;
+    bool continuer = true;
+    char c;
+
+    char* name = &chemin[0];
+    mkdir(name, 0777);
+
+    while (continuer)
+    {
+        cout << "Creation d'un nouveau fichier : " << endl << endl;
+        fichier = chemin + "/" + nom + to_string(i) + ".board";
+        newPlateau(fichier);
+        i++;
+        cout << endl;
+        cout << "Voulez vous faire un nouveau plateau ? (o/n)";
+        cin >> c;
+        continuer = (c == 'o');
+    }
+
     return 0;
 }
-
 
 
 void afficher(vector<vector<char>> v)
@@ -33,9 +65,11 @@ void afficher(vector<vector<char>> v)
             cout << v[i][j];
         cout << endl;
     }
+    cout << endl;
 }
 
-void newPlateau()
+
+void newPlateau(string str)
 {
     int x;
     int y;
@@ -44,6 +78,7 @@ void newPlateau()
     cin >> x;
     cout << "hauteur = ";
     cin >> y;
+    cout << endl;
 
     // creation des fondations avec pose des murs porteurs
     vector<vector<char>> p;
@@ -78,18 +113,20 @@ void newPlateau()
         cout << "5- un chargeur" << endl;
         cin >> choix;
         char symbole = parse(choix);
+
         cout << "À quel endroit ?" << endl;
         cout << "abscisse (0 à "<< x-1 <<") = ";
         cin >> i;
         cout << "ordonnée (0 à "<< y-1 <<") = ";
         cin >> j;
         p[j][i] = symbole;
+        
         afficher(p);
         cout << "Voulez vous continuer de modifier le plateau ? (o/n) ";
         cin >> c;
         continuer = (c == 'o');
     }
-    newFile(p);
+    newFile(p, str);
 }
 
 char parse(int n)
@@ -104,9 +141,9 @@ char parse(int n)
     }
 }
 
-void newFile(vector<vector<char>> v)
+void newFile(vector<vector<char>> v, string str)
 {
-    ofstream fichier ("assets/boards/testCreation.board");
+    ofstream fichier (str);
 
     if (fichier)
     {

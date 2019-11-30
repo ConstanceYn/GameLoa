@@ -3,10 +3,19 @@
 
 using namespace std;
 
-int main()
+
+int main(int argc, char const *argv[])
 {
     cout << "Game !" << endl;
-    Plateau p {"assets/boards/testCreation.board"};
+    string nom = "assets/boards/";
+    if (argc >= 2)
+    {
+        nom += argv[1];
+        nom +=".board";
+    }
+    else
+        nom += "testCreation.board";
+    Plateau p {nom};
     cout << p ;
     return 0;
 }
