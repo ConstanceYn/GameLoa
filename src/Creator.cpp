@@ -21,8 +21,7 @@ char parse(int n);
 
 int main(int argc, char const *argv[])
 {
-    cout << "Creation !" << endl;
-    cout << endl;
+    cout << "Creation !" << endl << endl;
 
     string chemin = "assets/boards/";
     string nom;
@@ -48,7 +47,7 @@ int main(int argc, char const *argv[])
         newPlateau(fichier);
         i++;
         cout << endl;
-        cout << "Voulez vous faire un nouveau plateau ? (o/n)";
+        cout << "Voulez vous faire un nouveau plateau ? (o/n) ";
         cin >> c;
         continuer = (c == 'o');
     }
