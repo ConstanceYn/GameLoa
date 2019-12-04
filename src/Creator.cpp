@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -120,7 +120,7 @@ void newPlateau(string str)
         cout << "ordonnée (0 à "<< y-1 <<") = ";
         cin >> j;
         p[j][i] = symbole;
-        
+
         afficher(p);
         cout << "Voulez vous continuer de modifier le plateau ? (o/n) ";
         cin >> c;
