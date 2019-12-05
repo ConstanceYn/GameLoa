@@ -1,9 +1,9 @@
 #include "Porte.hpp"
 
-Porte::Porte(): Case('-'), ouverte(false){}
+Porte::Porte(): Case(PORTEF), ouverte(false){}
 
 void Porte::ouverture()
 {
     ouverte = true;
-    symbole = '+';
+    pion = PORTEO;
 }

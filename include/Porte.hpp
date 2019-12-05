@@ -3,6 +3,9 @@
 
 #include "Case.hpp"
 
+const Pion PORTEF = Pion('-');
+const Pion PORTEO = Pion('+');
+
 class Porte : public Case {
 private:
     bool ouverte;

@@ -1,10 +1,12 @@
 #include "Case.hpp"
 
+// Constructeurs
+Case::Case(): pion(VIDE){}
+Case::Case(Pion p): pion(p) {}
 
-Case::Case(char c): symbole(c) {}
-
+// Affichage
 ostream& operator<<(ostream& out, Case c)
 {
-    out << c.symbole;
+    out << c.pion.getSymbole();
     return out;
 }

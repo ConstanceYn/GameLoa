@@ -1,3 +1,3 @@
 #include "Mur.hpp"
 
-Mur::Mur(): Case('X'){}
+Mur::Mur(): Case(PMUR){}

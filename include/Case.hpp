@@ -3,24 +3,27 @@
 
 #include "Pion.hpp"
 
+const Pion VIDE = Pion();
+
 class Case {
 protected :
-    //Pion v; // None si aucun
-             // None existe ?
-             // J'ai mis en commentaire pour l'instant parce qu'il me faisait chier pour le constucteur
-
-    // si un Pion, le symbole change, on récupère le symbole avec getSymbole
-    char symbole;
+    Pion pion; // Pion "vide" si aucun
+    // On récupère le symbole avec getSymbole
+    // char symbole;
 
 public :
-    Case(char c);
+    // Constructeurs
+    Case(); // Case vide par défaut
+    Case(Pion p);
 
     // des fonctions qui modifient le contenu de la Case
     // add/remove Pion
 
+    // Affichage
     friend ostream& operator<<(ostream& out, Case c);
 
 };
 
+// Affichage
 ostream& operator<<(ostream& out, Case c);
 #endif
