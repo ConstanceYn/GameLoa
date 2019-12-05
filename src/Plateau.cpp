@@ -15,13 +15,52 @@ Plateau::Plateau(string chemin)
     {
         while(fichier.tellg() != taille)
         {
-            vector<char> v;
+            vector<Case> v;
 
             while(c!='\n')
             {
                 fichier.get(c);
-                if (c!='\n')
-                    v.push_back(c);
+                Case cas;
+                switch(c)
+                {
+                  case ' ': // vide
+                    cas = Case();
+                    v.push_back(cas);
+                    break;
+
+                  case 'X': // mur
+                    cas = Mur();
+                    v.push_back(cas);
+                    break;
+
+                  case '-': // porte
+                    cas = Porte();
+                    v.push_back(cas);
+                    break;
+
+                  case '$': // diamant
+                    cas = Case(Diamant());
+                    v.push_back(cas);
+                    break;
+
+                  case '*': // chargeur
+                    cas = Case(Chargeur());
+                    v.push_back(cas);
+                    break;
+
+                  case 'J': // joueur
+                    cas = Case(Joueur());
+                    v.push_back(cas);
+                    break;
+
+                  case 'm' : // monstre
+                    cas = Case(Monstre());
+                    v.push_back(cas);
+                    break;
+
+                  default :
+                    break;
+                }
             }
             c =' ';
             plateau.push_back(v);

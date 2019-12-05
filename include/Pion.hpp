@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+//#include "Plateau.hpp"
+
 using namespace std;
 
 class Pion {
@@ -22,6 +24,8 @@ public:
 
     // Getters
     char getSymbole();
+    //int getPosX(Plateau p);
+    //int getPosY(Plateau p);
 
     //virtual void actionPion();
     //      fonction qui fait ce que le Pion fait
