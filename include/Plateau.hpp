@@ -17,11 +17,13 @@ using namespace std;
 class Plateau {
 private:
     vector<vector<Case>> plateau;
-    // char pour l'instant, on modifiera plus tard en Case -> Let's go !
 
 public:
     Plateau (string chemin);
     //virtual ~Plateau ();
+
+    Case getCase(int i, int j);
+    
     friend ostream& operator<<(ostream &out, Plateau p);
 };
 

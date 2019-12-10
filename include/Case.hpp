@@ -16,8 +16,14 @@ public :
     Case(); // Case vide par défaut
     Case(Pion p);
 
-    // des fonctions qui modifient le contenu de la Case
+    // Getter
+    Pion getPion();
+
     // add/remove Pion
+    void addPion(Pion p);
+    void removePion();
+
+    // des fonctions qui modifient le contenu de la Case
 
     // Affichage
     friend ostream& operator<<(ostream& out, Case c);

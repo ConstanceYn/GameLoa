@@ -20,42 +20,34 @@ Plateau::Plateau(string chemin)
             while(c!='\n')
             {
                 fichier.get(c);
-                Case cas;
                 switch(c)
                 {
                   case ' ': // vide
-                    cas = Case();
-                    v.push_back(cas);
+                    v.push_back(Case());
                     break;
 
                   case 'X': // mur
-                    cas = Mur();
-                    v.push_back(cas);
+                    v.push_back(Mur());
                     break;
 
                   case '-': // porte
-                    cas = Porte();
-                    v.push_back(cas);
+                    v.push_back(Porte());
                     break;
 
                   case '$': // diamant
-                    cas = Case(Diamant());
-                    v.push_back(cas);
+                    v.push_back(Diamant());
                     break;
 
                   case '*': // chargeur
-                    cas = Case(Chargeur());
-                    v.push_back(cas);
+                    v.push_back(Chargeur());
                     break;
 
                   case 'J': // joueur
-                    cas = Case(Joueur());
-                    v.push_back(cas);
+                    v.push_back(Joueur());
                     break;
 
                   case 'm' : // monstre
-                    cas = Case(Monstre());
-                    v.push_back(cas);
+                    v.push_back(Monstre());
                     break;
 
                   default :
@@ -73,6 +65,10 @@ Plateau::Plateau(string chemin)
     {
         cout << "Prout" << endl;
     }
+}
+
+Case Plateau::getCase(int i, int j){
+  return plateau[i][j];
 }
 
 ostream &operator<<(ostream &out, Plateau p)
