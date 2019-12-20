@@ -5,13 +5,13 @@ Case::Case(): pion(VIDE){}
 Case::Case(Pion p): pion(p) {}
 
 // Getter
-Pion Case::getPion()
+Pion Case::getPion() const
 {
     return pion;
 }
 
 // add/remove Pion
-void Case::addPion(Pion p)
+void Case::addPion(const Pion p)
 {
     pion = p;
 }

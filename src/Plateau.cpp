@@ -5,14 +5,15 @@ Plateau::Plateau(string chemin)
 {
     ifstream fichier(chemin); // ouverture en mode lecture
 
-    char c;
-    // on récupère la taille du fcihier pour savoir quand on arrive à la fin
-    fichier.seekg(0, ios::end);
-    int taille = fichier.tellg();
-    fichier.seekg(0, ios::beg);
     // si le fichier est ouvert
     if (fichier)
     {
+        char c;
+        // on récupère la taille du fcihier pour savoir quand on arrive à la fin
+        fichier.seekg(0, ios::end);
+        int taille = fichier.tellg();
+        fichier.seekg(0, ios::beg);
+
         while(fichier.tellg() != taille)
         {
             vector<Case> v;
@@ -59,15 +60,13 @@ Plateau::Plateau(string chemin)
         }
     }
 
-    // si le fichier n'est pas bien ouvert ce qui est actuellement le cas
-    // non, maintenant ça marche !!
     else
     {
         cout << "Prout" << endl;
     }
 }
 
-Case Plateau::getCase(int i, int j){
+Case Plateau::getCase(int i, int j) const{
   return plateau[i][j];
 }
 

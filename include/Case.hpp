@@ -17,10 +17,10 @@ public :
     Case(Pion p);
 
     // Getter
-    Pion getPion();
+    Pion getPion() const;
 
     // add/remove Pion
-    void addPion(Pion p);
+    void addPion(const Pion p);
     void removePion();
 
     // des fonctions qui modifient le contenu de la Case

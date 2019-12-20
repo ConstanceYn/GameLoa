@@ -22,8 +22,8 @@ public:
     Plateau (string chemin);
     //virtual ~Plateau ();
 
-    Case getCase(int i, int j);
-    
+    Case getCase(int i, int j) const;
+
     friend ostream& operator<<(ostream &out, Plateau p);
 };
 

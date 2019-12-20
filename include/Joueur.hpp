@@ -13,9 +13,6 @@ public:
     Joueur ();
     //virtual ~Joueur ();
 
-    bool move(int x, int y, Plateau p);
-    bool moving(int x, int y, Plateau p);
-    
 };
 
 #endif
