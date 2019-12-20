@@ -18,8 +18,8 @@ bool Joueur::moving(int x, int y, Plateau p)
 {
   bool b = move(x, y, p);
   if (b){
-    p.getCase(x, y).addPion(Joueur()); // déplace pion dans sa nouvelle case
-    // add à revoir car ici il crée un nouveau joueur -> bad
+    p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
+    // add à revoir car pas tester pour l'instant (oui ou non * ?)
     p.getCase(i, j).removePion(); // retire pion de son ancienne case
   }
   return b;
