@@ -11,8 +11,17 @@ private:
 
 public:
     Joueur ();
+    // quand on crée un joueur qui a déja des tp en stock
+    Joueur(int t);
     //virtual ~Joueur ();
 
+    // ajoute un diam à nbDiam et modifie sortie
+    void addDiam();
+    //ajoute un chargeur
+    void addTp();
+    void setTp(int t);
+
+    bool getSortie() const;
 };
 
 #endif

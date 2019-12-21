@@ -1,7 +1,7 @@
 #include "Jeux.hpp"
 
 
-Jeux::Jeux(string str) : nom(str)
+Jeux::Jeux(string str) : nom(str), Personne(Personne())
 {
     string chemin  = "assets/boards/";
     bool existe = true;
