@@ -5,7 +5,7 @@ Case::Case(): pion(VIDE){}
 Case::Case(Pion p): pion(p) {}
 
 // Getter
-Pion Case::getPion() const
+const Pion& Case::getPion() const
 {
     return pion;
 }

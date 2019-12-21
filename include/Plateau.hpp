@@ -22,7 +22,11 @@ public:
     Plateau (string chemin);
     //virtual ~Plateau ();
 
-    Case getCase(int i, int j) const;
+    // une référence pour avoir la case qu'on veut et pas juste une copie
+    const Case& getCase(int i, int j) const;
+    const Pion& getJoueur() const;
+
+    void parseMouv(char c);
 
     friend ostream& operator<<(ostream &out, Plateau p);
 };

@@ -7,7 +7,7 @@ Joueur::Joueur(int t): Pion('J'), nbDiam(0), sortie(false), nbTp(t) {}
 
 void Joueur::addDiam()
 {
-    ndDiam += 1;
+    nbDiam += 1;
     if (nbDiam == 1)
         sortie = true;
 }

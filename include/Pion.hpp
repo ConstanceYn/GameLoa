@@ -26,7 +26,7 @@ public:
     int getJ() const;
 
 
-    bool moving(const int x, const int y, Plateau p);
+    bool moving(const int x, const int y, Plateau &p);
 
     //virtual void actionPion();
     //      fonction qui fait ce que le Pion fait

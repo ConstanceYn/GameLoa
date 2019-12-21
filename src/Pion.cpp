@@ -39,6 +39,8 @@ bool Pion::moving(const int x, const int y, Plateau p)
     p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
     // add à revoir car pas tester pour l'instant (oui ou non * ?)
     p.getCase(i, j).removePion(); // retire pion de son ancienne case
+    i = x;
+    j = y;
   }
   return b;
 }

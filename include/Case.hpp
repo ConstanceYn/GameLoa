@@ -17,7 +17,7 @@ public :
     Case(Pion p);
 
     // Getter
-    Pion getPion() const;
+    const Pion& getPion() const;
 
     // add/remove Pion
     void addPion(const Pion p);

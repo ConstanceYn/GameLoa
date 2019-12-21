@@ -13,6 +13,8 @@ int main(int argc, char const *argv[])
         nom = argv[1];
 
     Jeux j {nom};
-    cout << j ;
+    cout << j;
+    j.tour();
+    cout << j;
     return 0;
 }

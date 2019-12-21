@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Plateau.hpp"
-#include "Joueur.hpp"
+#include "Personne.hpp"
 
 using namespace std;
 
@@ -14,10 +14,15 @@ private:
     string nom;
     Personne joueur;
     vector<Plateau> plateaux;
+    // le niveau dans lequel on est actuellement
+    int niveau;
 
 public:
     Jeux (string str);
     //virtual ~Jeux ();
+    void nextLevel();
+    void tour();
+    
     friend ostream& operator<<(ostream &out, Jeux j);
 };
 

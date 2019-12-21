@@ -1,7 +1,7 @@
 #include "Jeux.hpp"
 
 
-Jeux::Jeux(string str) : nom(str), Personne(Personne())
+Jeux::Jeux(string str) : nom(str), joueur(Personne()), niveau(0)
 {
     string chemin  = "assets/boards/";
     bool existe = true;
@@ -22,12 +22,31 @@ Jeux::Jeux(string str) : nom(str), Personne(Personne())
     }
 }
 
+void Jeux::nextLevel()
+{
+    niveau += 1;
+    if (niveau > plateaux.size())
+        cout << "Jeu terminé !!" << endl;
+        cout << "BRAVO !!" << endl;
+}
+
+
+void Jeux::tour()
+{
+    // Pour l'instant seulement le deplacement du joueur
+    char c;
+    cout << "Mouvement :" << endl;
+    cin >> c;
+    plateaux[niveau].parseMouv(c);
+}
+
+
+
+
 ostream& operator<<(ostream &out, Jeux j)
 {
-    for (size_t i = 0; i < j.plateaux.size(); i++)
-    {
-        out << j.plateaux[i];
-        out << endl;
-    }
+    out << j.joueur << endl;
+    out << j.plateaux[j.niveau] << endl;
+
     return out;
 }
