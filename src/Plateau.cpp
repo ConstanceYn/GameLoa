@@ -71,7 +71,7 @@ Plateau::Plateau(string chemin)
 
 Case& Plateau::getCase(const int i, const int j)
 {
-  return plateau[i][j];
+  return plateau[j][i];
 }
 
 // Pion& Plateau::getJoueur() const
@@ -126,12 +126,12 @@ void Plateau::parseMouv(char c)
             break;
     }
 
-    for (size_t i = 0; i < plateau.size(); i++) {
-        for (size_t j = 0; j < plateau[i].size(); j++) {
+    for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+        for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
             if (plateau[i][j].getPion().getSymbole()== 'J')
             {
-                int a = i + x;
-                int b = j + y;
+                int a = j + x;
+                int b = i + y;
                 plateau[i][j].getPion().moving(a, b, *this);
             }
         }

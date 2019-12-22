@@ -2,6 +2,18 @@
 #include "Plateau.hpp"
 
 // Constructeurs
+
+
+// Nous avons un problème avec ses constructeurs, ils sont appelé quelque part et je ne trouve pas ou
+//  Le pire c'est qu'ils sont appelés avant le programme ????
+// Si on les enlève le code ne compile plus
+// je ne comprends rien, tuez moi
+//  https://www.youtube.com/watch?v=th4Czv1j3F8
+
+Pion::Pion(){cout << "j'existe quelque part visiblement"<< endl;}
+Pion::Pion(char c) {cout << "moi aussi askip " << endl;}
+
+
 Pion::Pion(int x, int y): symbole(' '), i(x), j(y){}
 Pion::Pion(char c, int x, int y): symbole(c), i(x), j(y){}
 
@@ -30,11 +42,7 @@ bool Pion::move(const int x, const int y, Plateau p)
 {
     char cible = p.getCase(x, y).getPion().getSymbole();
     if (cible == ' ' || cible == '$' || cible == '*' || cible == '+'){ // case "vide"
-        cout << "test 1 ok" << endl;
-        cout << "x = " << x << "et i = " << i << endl;
-        cout << "y = " << y << "et j = " << j << endl;
         if (x >= i-1 && x <= i+1 && y >= j-1 && y <= j+1){ // case adjacente
-            cout << "test 2 ok" << endl;
             return !(x == i && y == j); // la case où on se trouve actuellement
         }
     }
@@ -43,7 +51,6 @@ bool Pion::move(const int x, const int y, Plateau p)
 
 bool Pion::moving(const int x, const int y, Plateau& p)
 {
-    cout << "x "<< x << " et y " << y<< endl;
     bool b = move(x, y, p);
     if (b){
         p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
@@ -52,7 +59,5 @@ bool Pion::moving(const int x, const int y, Plateau& p)
         i = x;
         j = y;
     }
-    char c = b? 'o': 'n';
-    cout << "Mouvement possible ? " << c << endl;
     return b;
 }
