@@ -8,7 +8,7 @@ private:
     // je ne sais pas ce qu'il y a en plus
 
 public:
-    Diamant ();
+    Diamant (int x, int y);
     //virtual ~Diamant ();
 
     // void actionPion();

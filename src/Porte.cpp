@@ -1,9 +1,9 @@
 #include "Porte.hpp"
 
-Porte::Porte(): Case(PORTEF), ouverte(false){}
+Porte::Porte(int x, int y): Case(Pion('-', x, y)), ouverte(false){}
 
 void Porte::ouverture()
 {
     ouverte = true;
-    pion = PORTEO;
+    pion.setSymbole('+');
 }

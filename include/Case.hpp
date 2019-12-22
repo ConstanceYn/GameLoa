@@ -3,7 +3,7 @@
 
 #include "Pion.hpp"
 
-const Pion VIDE = Pion();
+//const Pion VIDE = Pion();
 
 class Case {
 protected :
@@ -13,14 +13,14 @@ protected :
 
 public :
     // Constructeurs
-    Case(); // Case vide par défaut
+    Case(int x, int y); // Case vide par défaut
     Case(Pion p);
 
     // Getter
-    const Pion& getPion() const;
+    Pion &getPion();
 
     // add/remove Pion
-    void addPion(const Pion p);
+    void addPion(const Pion& p);
     void removePion();
 
     // des fonctions qui modifient le contenu de la Case

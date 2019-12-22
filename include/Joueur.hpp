@@ -10,9 +10,10 @@ private:
     int nbTp;
 
 public:
-    Joueur ();
+    Joueur (int x, int y);
     // quand on crée un joueur qui a déja des tp en stock
-    Joueur(int t);
+    // je ne sais pas si ça servira un jour
+    Joueur(int x, int y, int t);
     //virtual ~Joueur ();
 
     // ajoute un diam à nbDiam et modifie sortie

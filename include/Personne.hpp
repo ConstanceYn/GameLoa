@@ -16,7 +16,7 @@ public:
     //virtual ~Personne ();
 
     // Pour ajouter ou enlever (-1) un diamant ou un tp
-    void addPion(int d, int t);
+    void addElement(int d, int t);
     int getTp() const;
 
     friend ostream& operator<<(ostream& out, Personne p);

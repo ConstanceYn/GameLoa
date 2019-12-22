@@ -8,7 +8,7 @@ private:
     // je sais pas
 
 public:
-    Chargeur ();
+    Chargeur (int x, int y);
     //virtual ~Chargeur ();
 
     // void actionPion();

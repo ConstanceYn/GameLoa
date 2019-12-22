@@ -8,7 +8,7 @@ private:
     // je sais pas
 
 public:
-    Monstre ();
+    Monstre (int x, int y);
     //virtual ~Monstre ();
 };
 

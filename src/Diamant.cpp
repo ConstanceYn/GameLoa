@@ -1,3 +1,3 @@
 #include "Diamant.hpp"
 
-Diamant::Diamant(): Pion('$'){}
+Diamant::Diamant(int x, int y): Pion('$', x, y){}

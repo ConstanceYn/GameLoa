@@ -23,8 +23,8 @@ public:
     //virtual ~Plateau ();
 
     // une référence pour avoir la case qu'on veut et pas juste une copie
-    const Case& getCase(int i, int j) const;
-    const Pion& getJoueur() const;
+    Case& getCase(const int i, const int j);
+    //Pion& getJoueur() const;
 
     void parseMouv(char c);
 

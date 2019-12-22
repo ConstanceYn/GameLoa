@@ -1,3 +1,3 @@
 #include "Monstre.hpp"
 
-Monstre::Monstre():Pion('m') {}
+Monstre::Monstre(int x, int y):Pion('m', x , y) {}

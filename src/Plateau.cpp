@@ -13,50 +13,53 @@ Plateau::Plateau(string chemin)
         fichier.seekg(0, ios::end);
         int taille = fichier.tellg();
         fichier.seekg(0, ios::beg);
-
+        int i = 0;
+        int j = 0;
         while(fichier.tellg() != taille)
         {
             vector<Case> v;
-
+            i = 0;
             while(c!='\n')
             {
                 fichier.get(c);
                 switch(c)
                 {
                   case ' ': // vide
-                    v.push_back(Case());
+                    v.push_back(Case(i,j));
                     break;
 
                   case 'X': // mur
-                    v.push_back(Mur());
+                    v.push_back(Mur(i,j));
                     break;
 
                   case '-': // porte
-                    v.push_back(Porte());
+                    v.push_back(Porte(i,j));
                     break;
 
                   case '$': // diamant
-                    v.push_back(Diamant());
+                    v.push_back(Diamant(i,j));
                     break;
 
                   case '*': // chargeur
-                    v.push_back(Chargeur());
+                    v.push_back(Chargeur(i,j));
                     break;
 
                   case 'J': // joueur
-                    v.push_back(Joueur());
+                    v.push_back(Joueur(i,j));
                     break;
 
                   case 'm' : // monstre
-                    v.push_back(Monstre());
+                    v.push_back(Monstre(i,j));
                     break;
 
                   default :
                     break;
                 }
+                i++;
             }
             c =' ';
             plateau.push_back(v);
+            j++;
         }
     }
 
@@ -66,23 +69,23 @@ Plateau::Plateau(string chemin)
     }
 }
 
-const Case& Plateau::getCase(int i, int j) const
+Case& Plateau::getCase(const int i, const int j)
 {
   return plateau[i][j];
 }
 
-const Pion& Plateau::getJoueur() const
-{
-    for (size_t i = 0; i < plateau.size(); i++) {
-        for (size_t j = 0; j < plateau[i].size(); j++) {
-            if (plateau[i][j].getPion().getSymbole()== 'J')
-                return plateau[i][j].getPion();
-        }
-    }
-    // CECI N4EST PAS CENSÉ SE PRODUIRE !!!
-    cout << "Joueur non trouvé" << endl;
-    return plateau[0][0].getPion();
-}
+// Pion& Plateau::getJoueur() const
+// {
+//     for (size_t i = 0; i < plateau.size(); i++) {
+//         for (size_t j = 0; j < plateau[i].size(); j++) {
+//             if (plateau[i][j].getPion().getSymbole()== 'J')
+//                 return plateau[i][j].getPion();
+//         }
+//     }
+//     // CECI N4EST PAS CENSÉ SE PRODUIRE !!!
+//     cout << "Joueur non trouvé" << endl;
+//     return plateau[0][0].getPion();
+// }
 
 
 

@@ -2,7 +2,7 @@
 
 Personne::Personne(): diam(0), tp(0){}
 
-void Personne::addPion(int d, int t)
+void Personne::addElement(int d, int t)
 {
     diam += d;
     tp += t;
