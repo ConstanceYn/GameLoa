@@ -11,8 +11,8 @@ public:
     Chargeur (int x, int y);
     //virtual ~Chargeur ();
 
-    // void actionPion();
-    //      à redéfinir
+    void actionPion(Personne p);
+
 };
 
 

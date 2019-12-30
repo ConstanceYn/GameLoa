@@ -61,3 +61,5 @@ bool Pion::moving(const int x, const int y, Plateau& p)
     }
     return b;
 }
+
+void Pion::actionPion(Personne p){}

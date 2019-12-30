@@ -11,8 +11,8 @@ public:
     Diamant (int x, int y);
     //virtual ~Diamant ();
 
-    // void actionPion();
-    //      à redéfinir
+    virtual void actionPion(Personne p);
+
 };
 
 #endif

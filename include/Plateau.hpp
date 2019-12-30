@@ -22,6 +22,10 @@ public:
     Plateau (string chemin);
     //virtual ~Plateau ();
 
+    int sizeI();
+
+    int sizeJ();
+
     // une référence pour avoir la case qu'on veut et pas juste une copie
     Case& getCase(const int i, const int j);
     //Pion& getJoueur() const;

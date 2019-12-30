@@ -19,3 +19,5 @@ ostream& operator<<(ostream& out, Personne p)
     out << "Nombre de Chargeur : " <<p.tp << endl;
     return out;
 }
+
+void teleport(){}

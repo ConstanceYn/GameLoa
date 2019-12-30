@@ -69,6 +69,16 @@ Plateau::Plateau(string chemin)
     }
 }
 
+int Plateau::sizeI()
+{
+  return plateau[0].size();
+}
+
+int Plateau::sizeJ()
+{
+  return plateau.size();
+}
+
 Case& Plateau::getCase(const int i, const int j)
 {
   return plateau[j][i];

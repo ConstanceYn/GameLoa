@@ -2,6 +2,11 @@
 #define PION
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#include "Personne.hpp"
 
 using namespace std;
 
@@ -30,10 +35,9 @@ public:
 
     void setSymbole(char c);
 
-
     bool moving(const int x, const int y, Plateau& p);
 
-    //virtual void actionPion();
+    virtual void actionPion(Personne p);
     //      fonction qui fait ce que le Pion fait
     // par exemple l'action d'un monstre est de bouger
 

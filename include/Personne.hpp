@@ -9,6 +9,7 @@ class Personne {
 private:
     int diam;
     int tp;
+    // int score;
 
 
 public:
@@ -18,6 +19,8 @@ public:
     // Pour ajouter ou enlever (-1) un diamant ou un tp
     void addElement(int d, int t);
     int getTp() const;
+
+    void teleport();
 
     friend ostream& operator<<(ostream& out, Personne p);
 };
