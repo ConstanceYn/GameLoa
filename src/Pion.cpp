@@ -9,8 +9,8 @@
 // Si on les enlève le code ne compile plus
 // je ne comprends rien, tuez moi
 
-Pion::Pion(){cout << "j'existe quelque part visiblement"<< endl;}
-Pion::Pion(char c) {cout << "moi aussi askip " << endl;}
+// Pion::Pion(){cout << "j'existe quelque part visiblement"<< endl;}
+// Pion::Pion(char c) {cout << "moi aussi askip " << endl;}
 
 
 Pion::Pion(int x, int y): symbole(' '), i(x), j(y){}
@@ -55,6 +55,7 @@ bool Pion::moving(const int x, const int y, Plateau& p)
         p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
         // add à revoir car pas tester pour l'instant (oui ou non * ?)
         p.getCase(i, j).removePion(); // retire pion de son ancienne case
+        cout << "I hate you : " << p.getCase(i, j) << endl;
         i = x;
         j = y;
     }

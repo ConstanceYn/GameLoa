@@ -101,6 +101,7 @@ Case& Plateau::getCase(const int i, const int j)
 
 void Plateau::parseMouv(char c)
 {
+    bool found = false;
     int x = 0, y = 0;
     switch (c)
     {
@@ -143,8 +144,12 @@ void Plateau::parseMouv(char c)
                 int a = j + x;
                 int b = i + y;
                 plateau[i][j].getPion().moving(a, b, *this);
+                found = true;
+                break;
             }
         }
+        if (found)
+            break;
     }
 
 }

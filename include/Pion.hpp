@@ -21,8 +21,8 @@ protected:
     bool move(const int x, const int y, const Plateau p);
 
 public:
-    Pion();
-    Pion( char c);
+    // Pion();
+    // Pion( char c);
     Pion (int x, int y); // Pion vide
     Pion (char c, int x, int y);
 

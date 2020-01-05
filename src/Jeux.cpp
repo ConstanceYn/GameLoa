@@ -31,12 +31,9 @@ void Jeux::nextLevel()
 }
 
 
-void Jeux::tour()
+void Jeux::tour(char c)
 {
     // Pour l'instant seulement le deplacement du joueur
-    char c;
-    cout << "Mouvement :" << endl;
-    cin >> c;
     plateaux[niveau].parseMouv(c);
 }
 

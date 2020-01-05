@@ -21,8 +21,8 @@ public:
     Jeux (string str);
     //virtual ~Jeux ();
     void nextLevel();
-    void tour();
-    
+    void tour(char c);
+
     friend ostream& operator<<(ostream &out, Jeux j);
 };
 

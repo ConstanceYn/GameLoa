@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    cout << "Pour les lignes juste au dessus, voir les constructeurs dans Pion.cpp" << endl << endl;
+    //cout << "Pour les lignes juste au dessus, voir les constructeurs dans Pion.cpp" << endl << endl;
     cout << "Game !" << endl << endl;
 
     string nom = "testCreation";
@@ -15,7 +15,18 @@ int main(int argc, char const *argv[])
 
     Jeux j {nom};
     cout << j;
-    j.tour();
-    cout << j;
+
+    char c;
+
+    bool continuer = true;
+    while(continuer)
+    {
+        cout << "Mouvement :" << endl;
+        cin >> c;
+        j.tour(c);
+        cout << j;
+        continuer = !(c == 'p');
+    }
+
     return 0;
 }

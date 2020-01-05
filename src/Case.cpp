@@ -19,6 +19,8 @@ void Case::addPion(const Pion& p)
 void Case::removePion()
 {
     pion = Pion(pion.getI(), pion.getJ());
+    cout << "I do my job" << endl;
+    pion.setSymbole(' ');
 }
 
 
@@ -43,7 +45,7 @@ ostream& operator<<(ostream& out, Case c)
 {
     // if (c.pion.getSymbole() == ' ')
     //     out << c.objet.getSymbole();
-    
+
     out << c.pion.getSymbole();
     return out;
 }
