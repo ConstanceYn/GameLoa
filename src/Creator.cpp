@@ -58,6 +58,7 @@ int main(int argc, char const *argv[])
 
 void afficher(vector<vector<char>> v)
 {
+    cout << endl;
     for (size_t i = 0; i < v.size(); i++)
     {
         for (size_t j = 0; j < v[i].size(); j++)
@@ -100,6 +101,22 @@ void newPlateau(string str)
     int i;
     int j;
     char c;
+    // ajouter le joueur :
+    bool isOK = false;
+    while (!isOK)
+    {
+        cout << "Ou voulez-vous mettre le Joueur ?" << endl;
+        cout << "abscisse (0 à "<< x-1 <<") = ";
+        cin >> i;
+        cout << "ordonnée (0 à "<< y-1 <<") = ";
+        cin >> j;
+        isOK = (i>=0 && i<x && j>=0 && j<y);
+    }
+    p[j][i] = 'J';
+
+    afficher(p);
+
+
     // décoration intérieur
     while (continuer)
     {
@@ -113,17 +130,26 @@ void newPlateau(string str)
         cin >> choix;
         char symbole = parse(choix);
 
-        cout << "À quel endroit ?" << endl;
-        cout << "abscisse (0 à "<< x-1 <<") = ";
-        cin >> i;
-        cout << "ordonnée (0 à "<< y-1 <<") = ";
-        cin >> j;
-        p[j][i] = symbole;
+        if (choix <=5 && choix >= 1)
+        {
+            cout << "À quel endroit ?" << endl;
+            cout << "abscisse (0 à "<< x-1 <<") = ";
+            cin >> i;
+            if (i>= 0 && i<x)
+            {
+                cout << "ordonnée (0 à "<< y-1 <<") = ";
+                cin >> j;
+                if (j>=0 && j<y)
+                {
+                    p[j][i] = symbole;
 
-        afficher(p);
-        cout << "Voulez vous continuer de modifier le plateau ? (o/n) ";
-        cin >> c;
-        continuer = (c == 'o');
+                    afficher(p);
+                    cout << "Voulez vous continuer de modifier le plateau ? (o/n) ";
+                    cin >> c;
+                    continuer = (c == 'o');
+                }
+            }
+        }
     }
     newFile(p, str);
 }
