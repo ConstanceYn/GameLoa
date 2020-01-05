@@ -24,7 +24,7 @@ public :
     Pion &getPion();
 
     // add/remove Pion
-    void addPion(const Pion& p);
+    void addPion(Pion& p);
     void removePion();
 
 

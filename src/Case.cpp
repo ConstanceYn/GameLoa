@@ -12,7 +12,7 @@ Pion &Case::getPion()
 }
 
 // add/remove Pion
-void Case::addPion(const Pion& p)
+void Case::addPion(Pion& p)
 {
     pion = p;
 }

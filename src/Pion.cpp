@@ -52,12 +52,18 @@ bool Pion::moving(const int x, const int y, Plateau& p)
 {
     bool b = move(x, y, p);
     if (b){
-        p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
-        // add à revoir car pas tester pour l'instant (oui ou non * ?)
-        p.getCase(i, j).removePion(); // retire pion de son ancienne case
-        cout << "I hate you : " << p.getCase(i, j) << endl;
+        int csti = i;
+        int cstj = j;
         i = x;
         j = y;
+        p.getCase(x, y).addPion(*this); // déplace pion dans sa nouvelle case
+        // add à revoir car pas tester pour l'instant (oui ou non * ?)
+
+        p.getCase(csti, cstj).removePion(); // retire pion de son ancienne case
+
+
+        cout << "test ab " << p.getCase(x,y).getPion().getI() << " = " << i << endl;
+        cout << "test or " << p.getCase(x,y).getPion().getJ() << " = " << j << endl;
     }
     return b;
 }
