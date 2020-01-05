@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-//#include <bits/stdc++.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 

@@ -11,10 +11,14 @@ protected :
     // On récupère le symbole avec getSymbole
     // char symbole;
 
+
+    /* Objet objet; */
+
 public :
     // Constructeurs
     Case(int x, int y); // Case vide par défaut
     Case(Pion p);
+
 
     // Getter
     Pion &getPion();
@@ -23,7 +27,13 @@ public :
     void addPion(const Pion& p);
     void removePion();
 
-    // des fonctions qui modifient le contenu de la Case
+
+    /*
+     Case(Objet o);
+    Objet &getObjet();
+    void addObjet(const Objet& o);
+    */
+
 
     // Affichage
     friend ostream& operator<<(ostream& out, Case c);

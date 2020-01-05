@@ -8,7 +8,6 @@
 //  Le pire c'est qu'ils sont appelés avant le programme ????
 // Si on les enlève le code ne compile plus
 // je ne comprends rien, tuez moi
-//  https://www.youtube.com/watch?v=th4Czv1j3F8
 
 Pion::Pion(){cout << "j'existe quelque part visiblement"<< endl;}
 Pion::Pion(char c) {cout << "moi aussi askip " << endl;}
@@ -42,9 +41,9 @@ bool Pion::move(const int x, const int y, Plateau p)
 {
     char cible = p.getCase(x, y).getPion().getSymbole();
     if (cible == ' ' || cible == '$' || cible == '*' || cible == '+'){ // case "vide"
-        if (x >= i-1 && x <= i+1 && y >= j-1 && y <= j+1){ // case adjacente
+        //if (x >= i-1 && x <= i+1 && y >= j-1 && y <= j+1){ // case adjacente
             return !(x == i && y == j); // la case où on se trouve actuellement
-        }
+        //}
     }
     return false;
 }

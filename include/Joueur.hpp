@@ -5,7 +5,7 @@
 
 class Joueur : public Pion{
 private:
-    //int nbDiam;
+    int nbDiam;
     bool sortie;
     //int nbTp;
 
@@ -17,7 +17,7 @@ public:
     //virtual ~Joueur ();
 
     // ajoute un diam à nbDiam et modifie sortie
-    //void addDiam();
+    void addDiam();
     //ajoute un chargeur
     //void addTp();
     //void setTp(int t);
