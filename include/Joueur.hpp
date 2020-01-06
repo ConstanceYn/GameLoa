@@ -5,9 +5,7 @@
 
 class Joueur : public Pion{
 private:
-    int nbDiam;
-    bool sortie;
-    //int nbTp;
+    //bool sortie;
 
 public:
     Joueur (int x, int y);
@@ -16,14 +14,9 @@ public:
     Joueur(int x, int y, int t);
     //virtual ~Joueur ();
 
-    // ajoute un diam à nbDiam et modifie sortie
-    void addDiam();
-    //ajoute un chargeur
-    //void addTp();
-    //void setTp(int t);
     virtual void teleport(int x, int y, Plateau &p); // fonctionne pas pour l'instant
 
-    bool getSortie() const;
+    //bool getSortie() const;
 };
 
 #endif

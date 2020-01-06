@@ -25,7 +25,7 @@ Jeux::Jeux(string str) : nom(str), joueur(Personne()), niveau(0)
 void Jeux::nextLevel()
 {
     niveau += 1;
-    if (niveau > plateaux.size())
+    if (niveau >= plateaux.size())
         cout << "Jeu terminé !!" << endl;
         cout << "BRAVO !!" << endl;
 }
@@ -39,9 +39,10 @@ void Jeux::tour(char c)
         joueur.addElement(1, 0);
     if (res == '*')
         joueur.addElement(0, 1);
+    if (res == '+')
+        nextLevel();
     if (c == 't' && joueur.getTp() >0)
     {
-        cout << "qqch" << endl;
         plateaux[niveau].parseTp(c);
         joueur.addElement(0, -1); // on enlève un chargeur
     }

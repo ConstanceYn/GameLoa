@@ -30,7 +30,8 @@ public:
     Case& getCase(const int i, const int j);
 
     char parseMouv(char c);
-    void parseTp(char c);
+    bool parsePorte();
+    bool parseTp(char c);
 
     friend ostream& operator<<(ostream &out, Plateau p);
 };

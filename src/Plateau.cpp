@@ -88,7 +88,6 @@ Case& Plateau::getCase(const int i, const int j)
 
 char Plateau::parseMouv(char c)
 {
-    bool found = false;
     int x = 0, y = 0;
     switch (c)
     {
@@ -132,37 +131,47 @@ char Plateau::parseMouv(char c)
                 int b = i + y;
                 char res = plateau[b][a].getPion().getSymbole();
                 plateau[i][j].getPion().moving(a, b, *this);
+                if (res == '$')
+                    parsePorte();
                 return res;
             }
         }
     }
     return (' ');
 }
-void Plateau::parseTp(char c)
+bool Plateau::parsePorte()
 {
-    cout << "qqch 2" << endl;
-    bool found = false;
+    for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+        for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+            if (plateau[i][j].getPion().getSymbole()== '-')
+            {
+                // provisoire
+                plateau[i][j].getPion().setSymbole('+');
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool Plateau::parseTp(char c)
+{
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
             if (plateau[i][j].getPion().getSymbole()== 'J')
             {
-                cout << "qqch 3" << endl;
                 srand(time(NULL));
                 int x = rand()%plateau[0].size();
-                cout << "x = " << x << endl;
                 srand(time(NULL));
                 int y = rand()%plateau.size();
-                cout << "y = " << y << endl;
 
                 plateau[i][j].getPion().teleport(x, y, *this);
 
-                found = true;
-                break;
+                return true;
             }
         }
-        if (found)
-            break;
     }
+    return false;
 }
 
 ostream &operator<<(ostream &out, Plateau p)

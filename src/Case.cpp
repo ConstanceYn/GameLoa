@@ -19,8 +19,6 @@ void Case::addPion(Pion& p)
 void Case::removePion()
 {
     pion = Pion(pion.getI(), pion.getJ());
-    cout << "I do my job" << endl;
-    pion.setSymbole(' ');
 }
 
 
