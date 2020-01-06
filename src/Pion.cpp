@@ -3,16 +3,6 @@
 
 // Constructeurs
 
-
-// Nous avons un problème avec ses constructeurs, ils sont appelé quelque part et je ne trouve pas ou
-//  Le pire c'est qu'ils sont appelés avant le programme ????
-// Si on les enlève le code ne compile plus
-// je ne comprends rien, tuez moi
-
-// Pion::Pion(){cout << "j'existe quelque part visiblement"<< endl;}
-// Pion::Pion(char c) {cout << "moi aussi askip " << endl;}
-
-
 Pion::Pion(int x, int y): symbole(' '), i(x), j(y){}
 Pion::Pion(char c, int x, int y): symbole(c), i(x), j(y){}
 
@@ -60,12 +50,22 @@ bool Pion::moving(const int x, const int y, Plateau& p)
         // add à revoir car pas tester pour l'instant (oui ou non * ?)
 
         p.getCase(csti, cstj).removePion(); // retire pion de son ancienne case
-
-
-        cout << "test ab " << p.getCase(x,y).getPion().getI() << " = " << i << endl;
-        cout << "test or " << p.getCase(x,y).getPion().getJ() << " = " << j << endl;
     }
     return b;
 }
 
 void Pion::actionPion(Personne p){}
+
+void Pion::teleport(int x, int y, Plateau &p)
+{
+    cout << "non c'est moi " << endl;
+    char c = p.getCase(x, y).getPion().getSymbole();
+    while (c != ' ' && c != '$' && c != '*' && c != '+'){ // je voulais utiliser move mais il veut pas :(
+      srand(time(NULL));
+      x = rand()%p.sizeI();
+      srand(time(NULL));
+      y = rand()%p.sizeJ();
+      c = p.getCase(x, y).getPion().getSymbole();
+    }
+    moving(x, y, p);
+}

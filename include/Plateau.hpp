@@ -28,9 +28,9 @@ public:
 
     // une référence pour avoir la case qu'on veut et pas juste une copie
     Case& getCase(const int i, const int j);
-    //Pion& getJoueur() const;
 
-    void parseMouv(char c);
+    char parseMouv(char c);
+    void parseTp(char c);
 
     friend ostream& operator<<(ostream &out, Plateau p);
 };

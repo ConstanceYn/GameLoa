@@ -26,6 +26,7 @@ void Joueur::setTp(int t)
 
 void Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
 {
+    cout << "c'est moi !" << endl;
     char c = p.getCase(x, y).getPion().getSymbole();
     while (c != ' ' && c != '$' && c != '*' && c != '+'){ // je voulais utiliser move mais il veut pas :(
       srand(time(NULL));

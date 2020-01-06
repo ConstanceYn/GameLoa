@@ -84,22 +84,9 @@ Case& Plateau::getCase(const int i, const int j)
   return plateau[j][i];
 }
 
-// Pion& Plateau::getJoueur() const
-// {
-//     for (size_t i = 0; i < plateau.size(); i++) {
-//         for (size_t j = 0; j < plateau[i].size(); j++) {
-//             if (plateau[i][j].getPion().getSymbole()== 'J')
-//                 return plateau[i][j].getPion();
-//         }
-//     }
-//     // CECI N4EST PAS CENSÉ SE PRODUIRE !!!
-//     cout << "Joueur non trouvé" << endl;
-//     return plateau[0][0].getPion();
-// }
 
 
-
-void Plateau::parseMouv(char c)
+char Plateau::parseMouv(char c)
 {
     bool found = false;
     int x = 0, y = 0;
@@ -143,7 +130,32 @@ void Plateau::parseMouv(char c)
             {
                 int a = j + x;
                 int b = i + y;
+                char res = plateau[b][a].getPion().getSymbole();
                 plateau[i][j].getPion().moving(a, b, *this);
+                return res;
+            }
+        }
+    }
+    return (' ');
+}
+void Plateau::parseTp(char c)
+{
+    cout << "qqch 2" << endl;
+    bool found = false;
+    for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+        for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+            if (plateau[i][j].getPion().getSymbole()== 'J')
+            {
+                cout << "qqch 3" << endl;
+                srand(time(NULL));
+                int x = rand()%plateau[0].size();
+                cout << "x = " << x << endl;
+                srand(time(NULL));
+                int y = rand()%plateau.size();
+                cout << "y = " << y << endl;
+
+                plateau[i][j].getPion().teleport(x, y, *this);
+
                 found = true;
                 break;
             }
@@ -151,7 +163,6 @@ void Plateau::parseMouv(char c)
         if (found)
             break;
     }
-
 }
 
 ostream &operator<<(ostream &out, Plateau p)

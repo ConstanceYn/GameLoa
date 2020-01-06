@@ -34,7 +34,19 @@ void Jeux::nextLevel()
 void Jeux::tour(char c)
 {
     // Pour l'instant seulement le deplacement du joueur
-    plateaux[niveau].parseMouv(c);
+    char res = plateaux[niveau].parseMouv(c);
+    if (res == '$')
+        joueur.addElement(1, 0);
+    if (res == '*')
+        joueur.addElement(0, 1);
+    if (c == 't' && joueur.getTp() >0)
+    {
+        cout << "qqch" << endl;
+        plateaux[niveau].parseTp(c);
+        joueur.addElement(0, -1); // on enlève un chargeur
+    }
+
+
 }
 
 

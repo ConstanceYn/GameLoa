@@ -1,6 +1,6 @@
 #include "Personne.hpp"
 
-Personne::Personne(): diam(0), tp(0){}
+Personne::Personne(): diam(0), tp(2){}
 
 void Personne::addElement(int d, int t)
 {

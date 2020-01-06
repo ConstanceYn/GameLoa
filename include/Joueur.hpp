@@ -21,7 +21,7 @@ public:
     //ajoute un chargeur
     //void addTp();
     //void setTp(int t);
-    void teleport(int x, int y, Plateau &p); // fonctionne pas pour l'instant
+    virtual void teleport(int x, int y, Plateau &p); // fonctionne pas pour l'instant
 
     bool getSortie() const;
 };
