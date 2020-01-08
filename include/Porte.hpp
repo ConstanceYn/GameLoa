@@ -12,8 +12,8 @@ private:
 
 public:
     Porte (int x, int y);
-    void ouverture();
     //virtual ~Porte ();
+    virtual void ouverture(); // ouvre la porte
 };
 
 #endif

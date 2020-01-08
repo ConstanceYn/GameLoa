@@ -46,8 +46,7 @@ void Jeux::tour(char c)
         plateaux[niveau].parseTp(c);
         joueur.addElement(0, -1); // on enlève un chargeur
     }
-
-
+    // plateaux[niveau].parseMstr();
 }
 
 

@@ -10,6 +10,7 @@ private:
 public:
     Monstre (int x, int y);
     //virtual ~Monstre ();
+    virtual void teleport(int x, int y, Plateau& p);
 };
 
 

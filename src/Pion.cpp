@@ -56,6 +56,8 @@ bool Pion::moving(const int x, const int y, Plateau& p)
 
 void Pion::actionPion(Personne p){}
 
+void Pion::ouverture(){}
+
 void Pion::teleport(int x, int y, Plateau &p)
 {
     cout << "non c'est moi " << endl;

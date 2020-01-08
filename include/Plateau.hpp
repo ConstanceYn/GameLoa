@@ -29,9 +29,10 @@ public:
     // une référence pour avoir la case qu'on veut et pas juste une copie
     Case& getCase(const int i, const int j);
 
-    char parseMouv(char c);
-    bool parsePorte();
-    bool parseTp(char c);
+    char parseMouv(char c); // déplacement du joueur
+    bool parsePorte(); // ouverture d'une porte
+    bool parseTp(char c); // téléportation
+    void parseMstr(); // déplacement des monstres
 
     friend ostream& operator<<(ostream &out, Plateau p);
 };

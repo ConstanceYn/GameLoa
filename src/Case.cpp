@@ -23,10 +23,7 @@ void Case::removePion()
 
 
 /*
-
 Case::Case(Objet o):objet(o) {}
-
-
 Objet &Case::getObjet()
 {
     return objet;

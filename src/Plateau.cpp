@@ -139,6 +139,7 @@ char Plateau::parseMouv(char c)
     }
     return (' ');
 }
+
 bool Plateau::parsePorte()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
@@ -146,7 +147,8 @@ bool Plateau::parsePorte()
             if (plateau[i][j].getPion().getSymbole()== '-')
             {
                 // provisoire
-                plateau[i][j].getPion().setSymbole('+');
+                //plateau[i][j].getPion().setSymbole('+');
+                plateau[i][j].getPion().ouverture();
                 return true;
             }
         }
@@ -172,6 +174,19 @@ bool Plateau::parseTp(char c)
         }
     }
     return false;
+}
+
+void Plateau::parseMstr()
+{
+    for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+        for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+            if (plateau[i][j].getPion().getSymbole()== 'm') {
+                cout << i << endl;
+                cout << j << endl;
+                plateau[i][j].getPion().teleport(i, j, *this);
+            }
+        }
+    }
 }
 
 ostream &operator<<(ostream &out, Plateau p)

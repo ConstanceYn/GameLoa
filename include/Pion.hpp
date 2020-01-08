@@ -36,9 +36,8 @@ public:
     bool moving(const int x, const int y, Plateau& p);
 
     virtual void actionPion(Personne p);
+    virtual void ouverture();
     virtual void teleport(int x, int y, Plateau &p);
-    //      fonction qui fait ce que le Pion fait
-    // par exemple l'action d'un monstre est de bouger
 
 };
 
