@@ -19,6 +19,7 @@ bool Monstre::moving(int x, int y, Plateau& p)
         Pion * cible = p.getCase(x,y);
         if (cible->getSymbole() == 'J'){
             // MANGE JOUEUR -> PERDU
+            cout << "NOM NOM NOM" << endl;
         }
         p.setCase(x,y,p.getCase(csti,cstj));
         if (diamant){

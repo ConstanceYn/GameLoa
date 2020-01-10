@@ -34,7 +34,7 @@ void Pion::resetBouge(){}
 bool Pion::move(const int x, const int y, Plateau p)
 {
     char cible = p.getCase(x, y)->getSymbole();
-    if (cible == ' ' || cible == '$' || cible == '*' || cible == '+'){ // case "vide"
+    if (cible == ' ' || cible == '$' || cible == '*' || cible == '+' || cible == 'J'){ // case "vide"
         //if (x >= i-1 && x <= i+1 && y >= j-1 && y <= j+1){ // case adjacente
             return !(x == i && y == j); // la case où on se trouve actuellement
         //}
