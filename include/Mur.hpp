@@ -1,11 +1,11 @@
 #ifndef MUR
 #define MUR
 
-#include "Case.hpp"
+#include "Pion.hpp"
 
 //const Pion PMUR = Pion('X');
 
-class Mur : public Case {
+class Mur : public Pion {
 private:
     //  en fait il y a des arguments en plus ?
 

@@ -17,7 +17,7 @@ Plateau::Plateau(string chemin)
         int j = 0;
         while(fichier.tellg() != taille)
         {
-            vector<Case> v;
+            vector<Pion*> v;
             i = 0;
             while(c!='\n')
             {
@@ -25,31 +25,31 @@ Plateau::Plateau(string chemin)
                 switch(c)
                 {
                   case ' ': // vide
-                    v.push_back(Case(i,j));
+                    v.push_back(new Pion(' ',i,j));
                     break;
 
                   case 'X': // mur
-                    v.push_back(Mur(i,j));
+                    v.push_back(new Mur(i,j));
                     break;
 
                   case '-': // porte
-                    v.push_back(Porte(i,j));
+                    v.push_back(new Porte(i,j));
                     break;
 
                   case '$': // diamant
-                    v.push_back(Diamant(i,j));
+                    v.push_back(new Diamant(i,j));
                     break;
 
                   case '*': // chargeur
-                    v.push_back(Chargeur(i,j));
+                    v.push_back(new Chargeur(i,j));
                     break;
 
                   case 'J': // joueur
-                    v.push_back(Joueur(i,j));
+                    v.push_back(new Joueur(i,j));
                     break;
 
                   case 'm' : // monstre
-                    v.push_back(Monstre(i,j));
+                    v.push_back(new Monstre(i,j));
                     break;
 
                   default :
@@ -62,7 +62,6 @@ Plateau::Plateau(string chemin)
             j++;
         }
     }
-
     else
     {
         cout << "Prout" << endl;
@@ -79,12 +78,15 @@ int Plateau::sizeJ()
   return plateau.size();
 }
 
-Case& Plateau::getCase(const int i, const int j)
+Pion * Plateau::getCase(const int i, const int j)
 {
   return plateau[j][i];
 }
 
-
+void Plateau::setCase(const int i, const int j, Pion * p)
+{
+    plateau[j][i] = p;
+}
 
 char Plateau::parseMouv(char c)
 {
@@ -125,14 +127,12 @@ char Plateau::parseMouv(char c)
 
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j].getPion().getSymbole()== 'J')
+            if (plateau[i][j]->getSymbole()== 'J')
             {
                 int a = j + x;
                 int b = i + y;
-                char res = plateau[b][a].getPion().getSymbole();
-                plateau[i][j].getPion().moving(a, b, *this);
-                if (res == '$')
-                    parsePorte();
+                char res = plateau[b][a]->getSymbole();
+                plateau[i][j]->moving(a, b, *this);
                 return res;
             }
         }
@@ -144,11 +144,9 @@ bool Plateau::parsePorte()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j].getPion().getSymbole()== '-')
+            if (plateau[i][j]->getSymbole()== '-')
             {
-                // provisoire
-                //plateau[i][j].getPion().setSymbole('+');
-                plateau[i][j].getPion().ouverture();
+                plateau[i][j]->ouverture();
                 return true;
             }
         }
@@ -160,14 +158,14 @@ bool Plateau::parseTp(char c)
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j].getPion().getSymbole()== 'J')
+            if (plateau[i][j]->getSymbole()== 'J')
             {
                 srand(time(NULL));
                 int x = rand()%plateau[0].size();
                 srand(time(NULL));
                 int y = rand()%plateau.size();
 
-                plateau[i][j].getPion().teleport(x, y, *this);
+                plateau[i][j]->teleport(x, y, *this);
 
                 return true;
             }
@@ -180,10 +178,10 @@ void Plateau::parseMstr()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j].getPion().getSymbole()== 'm') {
+            if (plateau[i][j]->getSymbole()== 'm') {
                 cout << i << endl;
                 cout << j << endl;
-                plateau[i][j].getPion().teleport(i, j, *this);
+                plateau[i][j]->teleport(i, j, *this);
             }
         }
     }
@@ -194,7 +192,7 @@ ostream &operator<<(ostream &out, Plateau p)
     for (int i = 0; i < p.plateau.size(); i++)
     {
         for (int j = 0; j < p.plateau[i].size(); j++)
-            out << p.plateau[i][j];
+            out << p.plateau[i][j]->getSymbole();
         out << endl;
     }
     return out;

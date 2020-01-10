@@ -1,24 +1,34 @@
 #include "Case.hpp"
 
 // Constructeurs
-Case::Case(int x, int y): pion(Pion(x,y)) {}
-Case::Case(Pion p): pion(p) {}
+Case::Case(int x, int y)
+{
+    Pion p = Pion(x, y);
+    pion = &p;
+}
+
+Case::Case(Pion * p): pion(p) {}
 
 
 // Getter
-Pion &Case::getPion()
+Pion Case::getPion()
 {
+    return * pion;
+}
+
+Pion * Case::getPionPointeur(){
     return pion;
 }
 
 // add/remove Pion
-void Case::addPion(Pion& p)
+void Case::addPion(Pion p)
 {
-    pion = p;
+    pion = &p;
 }
 void Case::removePion()
 {
-    pion = Pion(pion.getI(), pion.getJ());
+    Pion p = Pion(pion->getI(), pion->getJ());
+    pion = &p;
 }
 
 
@@ -41,6 +51,6 @@ ostream& operator<<(ostream& out, Case c)
     // if (c.pion.getSymbole() == ' ')
     //     out << c.objet.getSymbole();
 
-    out << c.pion.getSymbole();
+    out << c.pion->getSymbole();
     return out;
 }

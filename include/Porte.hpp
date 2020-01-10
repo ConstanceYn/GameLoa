@@ -1,12 +1,12 @@
 #ifndef PORTE
 #define PORTE
 
-#include "Case.hpp"
+#include "Pion.hpp"
 
 //const Pion PORTEF = Pion('-');
 //const Pion PORTEO = Pion('+');
 
-class Porte : public Case {
+class Porte : public Pion {
 private:
     bool ouverte;
 

@@ -8,7 +8,7 @@ void Monstre::teleport(int x, int y, Plateau& p)
   cout << "Bouge toi" << endl;
   for (size_t i = 0; i < p.sizeI(); i++) { // i est la hauteur !!
       for (size_t j = 0; j < p.sizeJ(); j++) { // j est la largeur !!
-          if (p.getCase(i, j).getPion().getSymbole()== 'J')
+          if (p.getCase(i, j)->getSymbole()== 'J')
           {
               if (i > x){
                   x++;

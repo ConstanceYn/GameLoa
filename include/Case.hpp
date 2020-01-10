@@ -7,7 +7,7 @@
 
 class Case {
 protected :
-    Pion pion; // Pion "vide" si aucun
+    Pion * pion; // Pion "vide" si aucun
     // On récupère le symbole avec getSymbole
     // char symbole;
 
@@ -17,14 +17,15 @@ protected :
 public :
     // Constructeurs
     Case(int x, int y); // Case vide par défaut
-    Case(Pion p);
+    Case(Pion * p);
 
 
     // Getter
-    Pion &getPion();
+    Pion getPion();
+    Pion * getPionPointeur();
 
     // add/remove Pion
-    void addPion(Pion& p);
+    void addPion(Pion p);
     void removePion();
 
 

@@ -1,3 +1,3 @@
 #include "Mur.hpp"
 
-Mur::Mur(int x, int y): Case(Pion('X', x, y)){}
+Mur::Mur(int x, int y): Pion('X', x, y){}
