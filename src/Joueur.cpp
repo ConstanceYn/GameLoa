@@ -18,10 +18,7 @@ bool Joueur::moving(const int x, const int y, Plateau& p)
         Pion * vide = new Pion(' ', csti,cstj);
         p.setCase(csti,cstj,vide);
         if (cible->getSymbole() == '$'){
-          p.parsePorte();
-        }
-        if (cible->getSymbole() == '*'){
-          // +1 tp
+            p.parsePorte();
         }
         delete cible;
     }
@@ -32,7 +29,7 @@ void Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
 {
     cout << "c'est moi !" << endl;
     char c = p.getCase(x, y)->getSymbole();
-    while (c != ' ' && c != '$' && c != '*' && c != '+'){ // je voulais utiliser move mais il veut pas :(
+    while (!move(x,y,p)){
       srand(time(NULL));
       x = rand()%p.sizeI();
       srand(time(NULL));

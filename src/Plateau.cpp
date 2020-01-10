@@ -178,10 +178,15 @@ void Plateau::parseMstr()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j]->getSymbole()== 'm') {
-                cout << i << endl;
-                cout << j << endl;
+            if (plateau[i][j]->getSymbole() == 'm') {
                 plateau[i][j]->teleport(i, j, *this);
+            }
+        }
+    }
+    for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+        for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+            if (plateau[i][j]->getSymbole() == 'm') {
+                plateau[i][j]->resetBouge();
             }
         }
     }

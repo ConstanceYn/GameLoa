@@ -33,6 +33,7 @@ public:
 
     void setSymbole(char c);
 
+    virtual void resetBouge();
     virtual bool moving(const int x, const int y, Plateau& p);
 
     virtual void actionPion(Personne p);

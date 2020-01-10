@@ -29,6 +29,8 @@ void Pion::setSymbole(char c)
     symbole = c;
 }
 
+void Pion::resetBouge(){}
+
 bool Pion::move(const int x, const int y, Plateau p)
 {
     char cible = p.getCase(x, y)->getSymbole();
