@@ -1,15 +1,5 @@
 #include "Plateau.hpp"
 
-void Plateau::free()
-{
-  for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
-      for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-          delete(plateau[i][j]);
-      }
-  }
-  plateau.clear();
-  cout<<"BOUM"<<endl;
-}
 
 Plateau::Plateau(string chemin)
 {
@@ -76,6 +66,18 @@ Plateau::Plateau(string chemin)
     {
         cout << "Prout" << endl;
     }
+}
+
+
+void Plateau::free()
+{
+  for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+      for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+          delete(plateau[i][j]);
+      }
+  }
+  plateau.clear();
+  cout<<"BOUM"<<endl;
 }
 
 int Plateau::sizeI()

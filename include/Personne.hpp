@@ -2,6 +2,7 @@
 #define PERSONNE
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ private:
 
 
 public:
-    Personne ();
+    Personne (string str);
     //virtual ~Personne ();
 
     // Pour ajouter ou enlever (-1) un diamant ou un tp

@@ -2,6 +2,9 @@
 #define JEUX
 
 #include <string>
+#include <iostream>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include "Plateau.hpp"
 #include "Personne.hpp"
 
@@ -23,6 +26,7 @@ public:
     void free();
     void nextLevel();
     bool tour(char c);
+    bool save();
 
     friend ostream& operator<<(ostream &out, Jeux j);
 };
