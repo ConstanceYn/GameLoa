@@ -15,8 +15,8 @@ public:
 
     virtual void resetBouge();
 
-    virtual bool moving(int x, int y, Plateau& p);
-    virtual void teleport(int x, int y, Plateau& p);
+    virtual bool moving(int x, int y, Plateau& p); // retourne si joueur manger
+    virtual bool teleport(int x, int y, Plateau& p); // retourne si joueur manger
 };
 
 

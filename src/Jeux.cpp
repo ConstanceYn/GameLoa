@@ -22,6 +22,12 @@ Jeux::Jeux(string str) : nom(str), joueur(Personne()), niveau(0)
     }
 }
 
+void Jeux::free(){
+    for (size_t i = 0; i < plateaux.size(); i++){
+        plateaux[i].free();
+    }
+}
+
 void Jeux::nextLevel()
 {
     niveau += 1;
@@ -31,25 +37,31 @@ void Jeux::nextLevel()
 }
 
 
-void Jeux::tour(char c)
+bool Jeux::tour(char c)
 {
-    // Pour l'instant seulement le deplacement du joueur
-    char res = plateaux[niveau].parseMouv(c);
-    if (res == '$')
-        joueur.addElement(1, 0);
-    if (res == '*')
-        joueur.addElement(0, 1);
-    if (res == '+')
-        nextLevel();
-    if (c == 't' && joueur.getTp() >0)
-    {
-        plateaux[niveau].parseTp(c);
-        joueur.addElement(0, -1); // on enlève un chargeur
-    }
-    plateaux[niveau].parseMstr(); // deplacer l'appel ?
+  bool b = false;
+  if (c == 't' && joueur.getTp() >0)
+  {
+      plateaux[niveau].parseTp(c);
+      joueur.addElement(0, -1); // on enlève un chargeur
+      b = plateaux[niveau].parseMstr();
+  }else{
+      char res = plateaux[niveau].parseMouv(c);
+      if (res == '$')
+          joueur.addElement(1, 0);
+      if (res == '*')
+          joueur.addElement(0, 1);
+      if (res == '+')
+          nextLevel();
+      if (res != 'y')
+          b = plateaux[niveau].parseMstr();
+  }
+  if (b){
+      cout << "Oh non ! Vous avez été mangé :'(\nGame over" << endl;
+      return true;
+  }
+  return false;
 }
-
-
 
 
 ostream& operator<<(ostream &out, Jeux j)

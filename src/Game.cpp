@@ -23,10 +23,10 @@ int main(int argc, char const *argv[])
     {
         cout << "Mouvement :" << endl;
         cin >> c;
-        j.tour(c);
+        bool b = j.tour(c);
         cout << j;
-        continuer = !(c == 'p');
+        continuer = ((c != 'p') && !b);
     }
-
+    j.free();
     return 0;
 }

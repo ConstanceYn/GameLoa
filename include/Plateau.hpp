@@ -22,6 +22,8 @@ public:
     Plateau (string chemin);
     //virtual ~Plateau ();
 
+    void free();
+
     int sizeI();
 
     int sizeJ();
@@ -33,7 +35,7 @@ public:
     char parseMouv(char c); // déplacement du joueur
     bool parsePorte(); // ouverture d'une porte
     bool parseTp(char c); // téléportation
-    void parseMstr(); // déplacement des monstres
+    bool parseMstr(); // déplacement des monstres
 
     friend ostream& operator<<(ostream &out, Plateau p);
 };

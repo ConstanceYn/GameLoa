@@ -68,16 +68,7 @@ void Pion::actionPion(Personne p){}
 
 void Pion::ouverture(){}
 
-void Pion::teleport(int x, int y, Plateau &p)
+bool Pion::teleport(int x, int y, Plateau &p)
 {
-    cout << "non c'est moi " << endl;
-    char c = p.getCase(x, y)->getSymbole();
-    while (c != ' ' && c != '$' && c != '*' && c != '+'){ // je voulais utiliser move mais il veut pas :(
-      srand(time(NULL));
-      x = rand()%p.sizeI();
-      srand(time(NULL));
-      y = rand()%p.sizeJ();
-      c = p.getCase(x, y)->getSymbole();
-    }
-    moving(x, y, p);
+    return false;
 }

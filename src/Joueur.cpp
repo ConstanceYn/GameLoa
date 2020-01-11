@@ -25,7 +25,7 @@ bool Joueur::moving(const int x, const int y, Plateau& p)
     return b;
 }
 
-void Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
+bool Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
 {
     cout << "c'est moi !" << endl;
     char c = p.getCase(x, y)->getSymbole();
@@ -36,7 +36,7 @@ void Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
       y = rand()%p.sizeJ();
       c = p.getCase(x, y)->getSymbole();
     }
-    moving(x, y, p);
+    return moving(x, y, p);
 }
 //
 // bool Joueur::getSortie() const

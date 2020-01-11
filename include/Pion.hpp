@@ -38,7 +38,7 @@ public:
 
     virtual void actionPion(Personne p);
     virtual void ouverture();
-    virtual void teleport(int x, int y, Plateau &p);
+    virtual bool teleport(int x, int y, Plateau &p);
 
 };
 

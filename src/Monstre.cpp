@@ -17,10 +17,6 @@ bool Monstre::moving(int x, int y, Plateau& p)
         i = x;
         j = y;
         Pion * cible = p.getCase(x,y);
-        if (cible->getSymbole() == 'J'){
-            // MANGE JOUEUR -> PERDU
-            cout << "NOM NOM NOM" << endl;
-        }
         p.setCase(x,y,p.getCase(csti,cstj));
         if (diamant){
             p.setCase(csti,cstj,new Diamant(csti,cstj));
@@ -39,12 +35,16 @@ bool Monstre::moving(int x, int y, Plateau& p)
         if (cible->getSymbole() == '*'){
             chargeur = true;
         }
+        if (cible->getSymbole() == 'J'){
+            cout << "NOM NOM NOM" << endl;
+            return true;
+        }
         delete cible;
     }
-    return b;
+    return false;
 }
 
-void Monstre::teleport(int x, int y, Plateau& p)
+bool Monstre::teleport(int x, int y, Plateau& p)
 {
   if (!bouge){
     cout << "Bouge toi" << endl;
@@ -70,6 +70,7 @@ void Monstre::teleport(int x, int y, Plateau& p)
       }
     }
     bouge = true;
-    moving(y, x, p);
+    return moving(y, x, p);
   }
+  return false;
 }

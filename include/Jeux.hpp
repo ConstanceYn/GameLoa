@@ -20,8 +20,9 @@ private:
 public:
     Jeux (string str);
     //virtual ~Jeux ();
+    void free();
     void nextLevel();
-    void tour(char c);
+    bool tour(char c);
 
     friend ostream& operator<<(ostream &out, Jeux j);
 };

@@ -15,7 +15,7 @@ public:
     //virtual ~Joueur ();
 
     virtual bool moving(const int x, const int y, Plateau& p);
-    virtual void teleport(int x, int y, Plateau &p); // fonctionne pas pour l'instant
+    virtual bool teleport(int x, int y, Plateau &p); // fonctionne pas pour l'instant
 
     //bool getSortie() const;
 };

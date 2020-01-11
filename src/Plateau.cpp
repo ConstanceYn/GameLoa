@@ -1,5 +1,15 @@
 #include "Plateau.hpp"
 
+void Plateau::free()
+{
+  for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+      for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+          delete(plateau[i][j]);
+      }
+  }
+  plateau.clear();
+  cout<<"BOUM"<<endl;
+}
 
 Plateau::Plateau(string chemin)
 {
@@ -132,12 +142,16 @@ char Plateau::parseMouv(char c)
                 int a = j + x;
                 int b = i + y;
                 char res = plateau[b][a]->getSymbole();
-                plateau[i][j]->moving(a, b, *this);
-                return res;
+                bool bouge = plateau[i][j]->moving(a, b, *this);
+                if (bouge){
+                    return res;
+                }else{
+                    return 'y';
+                }
             }
         }
     }
-    return (' ');
+    return ('y');
 }
 
 bool Plateau::parsePorte()
@@ -174,12 +188,14 @@ bool Plateau::parseTp(char c)
     return false;
 }
 
-void Plateau::parseMstr()
+bool Plateau::parseMstr()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
             if (plateau[i][j]->getSymbole() == 'm') {
-                plateau[i][j]->teleport(i, j, *this);
+                bool b = plateau[i][j]->teleport(i, j, *this);
+                if (b)
+                    return true;
             }
         }
     }
@@ -190,6 +206,7 @@ void Plateau::parseMstr()
             }
         }
     }
+    return false;
 }
 
 ostream &operator<<(ostream &out, Plateau p)
