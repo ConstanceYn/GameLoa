@@ -34,6 +34,7 @@ void Jeux::nextLevel()
     if (niveau >= plateaux.size())
         cout << "Jeu terminé !!" << endl;
         cout << "BRAVO !!" << endl;
+        free();
 }
 
 
