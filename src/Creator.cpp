@@ -15,6 +15,7 @@ void afficher(vector<vector<char>> v);
 // crée un fichier plateau à partir des entrées consoles
 void newPlateau(string str);
 void newFile(vector<vector<char>> v, string str);
+void newFile(int t, string str);
 char parse(int n);
 
 
@@ -38,6 +39,12 @@ int main(int argc, char const *argv[])
 
     char* name = &chemin[0];
     mkdir(name, 0777);
+
+    int chargeur;
+    cout << "Combien de chargeur aura le joueur aura de chargeur au démarrage ?" << endl;
+    cin >> chargeur;
+    string set = chemin + "/setting";
+    newFile(chargeur, set);
 
     while (continuer)
     {
@@ -115,7 +122,6 @@ void newPlateau(string str)
 
     afficher(p);
 
-
     // décoration intérieur
     while (continuer)
     {
@@ -179,5 +185,19 @@ void newFile(vector<vector<char>> v, string str)
         }
     }
     else
-        cout << "prout" << endl;
+        cout << "erreur création fichier plateau" << endl;
+}
+void newFile(int t, string str)
+{
+    ofstream fichier(str);
+    if (fichier)
+    {
+        fichier << '0';
+        fichier << '\n';
+        fichier << to_string(t);
+        fichier << '\n';
+    }
+    else
+        cout << "erreur création fichier setting" << endl;
+
 }

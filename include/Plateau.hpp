@@ -37,6 +37,8 @@ public:
     bool parseTp(char c); // téléportation
     bool parseMstr(); // déplacement des monstres
 
+    void copie(string str);
+
     friend ostream& operator<<(ostream &out, Plateau p);
 };
 

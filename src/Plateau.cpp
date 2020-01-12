@@ -1,15 +1,5 @@
 #include "Plateau.hpp"
 
-void Plateau::free()
-{
-  for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
-      for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-          delete(plateau[i][j]);
-      }
-  }
-  plateau.clear();
-  cout<<"BOUM"<<endl;
-}
 
 Plateau::Plateau(string chemin)
 {
@@ -62,6 +52,10 @@ Plateau::Plateau(string chemin)
                     v.push_back(new Monstre(i,j));
                     break;
 
+                  case '+' : //porte ouverte
+                    v.push_back(new Porte(i, j, true));
+                    break;
+
                   default :
                     break;
                 }
@@ -76,6 +70,18 @@ Plateau::Plateau(string chemin)
     {
         cout << "Prout" << endl;
     }
+}
+
+
+void Plateau::free()
+{
+  for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
+      for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
+          delete(plateau[i][j]);
+      }
+  }
+  plateau.clear();
+  cout<<"BOUM"<<endl;
 }
 
 int Plateau::sizeI()
@@ -207,6 +213,20 @@ bool Plateau::parseMstr()
         }
     }
     return false;
+}
+
+void Plateau::copie(string str)
+{
+    ofstream fichier (str);
+    if (fichier)
+    {
+        for (int i = 0; i < plateau.size(); i++)
+        {
+            for (int j = 0; j < plateau[i].size(); j++)
+                fichier << plateau[i][j]->getSymbole();
+            fichier << endl;
+        }
+    }
 }
 
 ostream &operator<<(ostream &out, Plateau p)
