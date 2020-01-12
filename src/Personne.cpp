@@ -19,12 +19,10 @@ Personne::Personne(string str)
             val = c - '0'; // conversion char to int
             diam = diam*10 + val;
             set.get(c);
-            cout << "a" << endl;
         }
         set.get(c);
-        while (set.tellg() != taille)
+        while (c != '\n')
         {
-            cout << "c = " << c << endl;
             val = c - '0';
             tp = tp*10 + val;
             set.get(c);
@@ -42,6 +40,10 @@ void Personne::addElement(int d, int t)
 int Personne::getTp() const
 {
     return tp;
+}
+int Personne::getDiam() const
+{
+    return diam;
 }
 
 ostream& operator<<(ostream& out, Personne p)

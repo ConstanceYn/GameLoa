@@ -79,7 +79,21 @@ bool Jeux::save()
 
     char* name = &chemin[0];
     mkdir(name, 0777);
-    
+
+    string setting = chemin + "/setting";
+    ofstream set (setting);
+    if (set)
+    {
+        set << to_string(joueur.getDiam());
+        set << '\n';
+        set << to_string(joueur.getTp());
+        set << '\n';
+    }
+
+    for (int i = niveau; i < plateaux.size(); i++) {
+        string str = chemin + "/" + nom + to_string(i-niveau +1)+ ".board";
+        plateaux[i].copie(str);
+    }
 
 
     return true;

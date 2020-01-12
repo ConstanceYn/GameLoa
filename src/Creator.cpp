@@ -195,6 +195,7 @@ void newFile(int t, string str)
         fichier << '0';
         fichier << '\n';
         fichier << to_string(t);
+        fichier << '\n';
     }
     else
         cout << "erreur création fichier setting" << endl;
