@@ -24,7 +24,7 @@ public:
     Jeux (string str);
     //virtual ~Jeux ();
     void free();
-    void nextLevel();
+    bool nextLevel();
     bool tour(char c);
     bool save();
 

@@ -16,7 +16,7 @@ void afficher(vector<vector<char>> v);
 void newPlateau(string str);
 void newFile(vector<vector<char>> v, string str);
 void newFile(int t, string str);
-char parse(int n);
+char parse(int n, bool *p, bool *d);
 
 
 int main(int argc, char const *argv[])
@@ -123,19 +123,25 @@ void newPlateau(string str)
     afficher(p);
 
     // décoration intérieur
-    while (continuer)
+    bool porte = false;
+    bool diam = false;
+    cout << "ahahahha" << endl;
+    while (continuer || !(porte) || !(diam))
     {
-        // /!\ ATTENTION aucun controle n'est fait, donc on peut rentrer de la merde !!!!
+        if(!continuer)
+            cout << "Mettez au moins une porte et un diamant !"<< endl << endl;
         cout << "Que voulez vous ajouter ? (Entrez un nombre)" << endl;
         cout << "1- une porte" << endl;
-        cout << "2- un monstre" << endl;
-        cout << "3- un mur" << endl;
-        cout << "4- un diamant (d'innocence)" << endl;
-        cout << "5- un chargeur" << endl;
+        cout << "2- un mur" << endl;
+        cout << "3- un diamant (d'innocence)" << endl;
+        cout << "4- un chargeur" << endl;
+        cout << "5- un monstre" << endl;
+        cout << "6- un monstre pas très intelligent" << endl;
+        cout << "7- un monstre aléatoire" << endl;
         cin >> choix;
-        char symbole = parse(choix);
+        char symbole = parse(choix, &porte, &diam);
 
-        if (choix <=5 && choix >= 1)
+        if (choix <=7 && choix >= 1)
         {
             cout << "À quel endroit ?" << endl;
             cout << "abscisse (0 à "<< x-1 <<") = ";
@@ -159,14 +165,20 @@ void newPlateau(string str)
     newFile(p, str);
 }
 
-char parse(int n)
+char parse(int n, bool *p, bool *d)
 {
     switch (n) {
-        case 1: return '-';
-        case 2: return 'm';
-        case 3: return 'X';
-        case 4: return '$';
-        case 5: return '*';
+        case 1:
+            *p = true;
+            return '-';
+        case 2: return 'X';
+        case 3:
+            *d = true;
+            return '$';
+        case 4: return '*';
+        case 5: return 'm';
+        case 6: return 'n';
+        case 7: return 'M';
         default: return ' ';
     }
 }
