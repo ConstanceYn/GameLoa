@@ -13,17 +13,15 @@ int main(int argc, char const *argv[])
         nom = argv[1];
 
     Jeux j {nom};
-    cout << j;
-
+    
     char c;
-
     bool continuer = true;
     while(continuer)
     {
+        cout << j;
         cout << "Mouvement :" << endl;
         cin >> c;
         bool b = j.tour(c);
-        cout << j;
         continuer = ((c != 'p') && !b);
     }
     j.free();

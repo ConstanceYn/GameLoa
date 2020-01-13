@@ -30,12 +30,17 @@ void Jeux::free(){
     }
 }
 
-void Jeux::nextLevel()
+bool Jeux::nextLevel()
 {
     niveau += 1;
     if (niveau >= plateaux.size())
+    {
         cout << "Jeu terminé !!" << endl;
         cout << "BRAVO !!" << endl;
+        return true;
+    }
+    return false;
+
 }
 
 
@@ -58,7 +63,7 @@ bool Jeux::tour(char c)
         if (res == '*')
             joueur.addElement(0, 1);
         if (res == '+')
-            nextLevel();
+            return nextLevel();
         if (res != 'y')
             b = plateaux[niveau].parseMstr();
     }
