@@ -13,7 +13,7 @@ char Pion::getSymbole() const
 {
     return symbole;
 }
-
+/*
 int Pion::getI() const
 {
     return i;
@@ -23,7 +23,7 @@ int Pion::getJ() const
 {
     return j;
 }
-
+*/
 void Pion::setSymbole(char c)
 {
     symbole = c;

@@ -25,7 +25,7 @@ bool Joueur::moving(const int x, const int y, Plateau& p)
     return b;
 }
 
-bool Joueur::teleport(int x, int y, Plateau &p) // WHY DO U HATE ME SO MUCH ToT
+bool Joueur::teleport(int x, int y, Plateau &p) 
 {
     cout << "c'est moi !" << endl;
     char c = p.getCase(x, y)->getSymbole();

@@ -28,8 +28,8 @@ public:
 
     // Getters
     char getSymbole() const;
-    int getI() const;
-    int getJ() const;
+    //int getI() const;
+    //int getJ() const;
 
     void setSymbole(char c);
 
