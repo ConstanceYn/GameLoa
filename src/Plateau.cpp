@@ -52,6 +52,14 @@ Plateau::Plateau(string chemin)
                     v.push_back(new Monstre(i,j));
                     break;
 
+                  case 'n' : // monstre pas très intelligent
+                      v.push_back(new MonstreNul(i,j));
+                      break;
+
+                  case 'M' : // monstre pas très intelligent
+                      v.push_back(new MegaMonstre(i,j));
+                      break;
+
                   case '+' : //porte ouverte
                     v.push_back(new Porte(i, j, true));
                     break;
@@ -81,7 +89,7 @@ void Plateau::free()
       }
   }
   plateau.clear();
-  cout<<"BOUM"<<endl;
+  //cout<<"BOUM"<<endl;
 }
 
 int Plateau::sizeI()
@@ -198,7 +206,8 @@ bool Plateau::parseMstr()
 {
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j]->getSymbole() == 'm') {
+            char c = plateau[i][j]->getSymbole();
+            if (c == 'm' || c == 'n' || c == 'M') {
                 bool b = plateau[i][j]->teleport(i, j, *this);
                 if (b)
                     return true;
@@ -207,7 +216,8 @@ bool Plateau::parseMstr()
     }
     for (size_t i = 0; i < plateau.size(); i++) { // i est la hauteur !!
         for (size_t j = 0; j < plateau[i].size(); j++) { // j est la largeur !!
-            if (plateau[i][j]->getSymbole() == 'm') {
+            char c = plateau[i][j]->getSymbole();
+            if (c == 'm' || c == 'n' || c == 'M') {
                 plateau[i][j]->resetBouge();
             }
         }

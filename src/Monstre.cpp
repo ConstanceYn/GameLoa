@@ -3,13 +3,13 @@
 
 Monstre::Monstre(int x, int y):Pion('m', x , y), bouge(false), diamant(false), chargeur(false) {}
 
-void Monstre::resetBouge(){
+void Monstre::resetBouge()
+{
     bouge = false;
 }
 
 bool Monstre::moving(int x, int y, Plateau& p)
 {
-    cout << "let's go pokemon" << endl;
     bool b = move(x, y, p);
     if (b){
         int csti = i;
@@ -47,7 +47,6 @@ bool Monstre::moving(int x, int y, Plateau& p)
 bool Monstre::teleport(int x, int y, Plateau& p)
 {
   if (!bouge){
-    cout << "Bouge toi" << endl;
     for (size_t i = 0; i < p.sizeI(); i++) { // i est la hauteur !!
       for (size_t j = 0; j < p.sizeJ(); j++) { // j est la largeur !!
         if (p.getCase(i, j)->getSymbole()== 'J')

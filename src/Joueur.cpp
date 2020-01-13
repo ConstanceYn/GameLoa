@@ -6,7 +6,6 @@ Joueur::Joueur(int x, int y): Pion('J', x, y) {}
 
 bool Joueur::moving(const int x, const int y, Plateau& p)
 {
-    cout << "let's move" << endl;
     bool b = move(x, y, p);
     if (b){
         int csti = i;
@@ -25,14 +24,11 @@ bool Joueur::moving(const int x, const int y, Plateau& p)
     return b;
 }
 
-bool Joueur::teleport(int x, int y, Plateau &p) 
+bool Joueur::teleport(int x, int y, Plateau &p)
 {
-    cout << "c'est moi !" << endl;
     char c = p.getCase(x, y)->getSymbole();
     while (!move(x,y,p)){
-      srand(time(NULL));
       x = rand()%p.sizeI();
-      srand(time(NULL));
       y = rand()%p.sizeJ();
       c = p.getCase(x, y)->getSymbole();
     }

@@ -6,6 +6,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+    srand(time(NULL));
     cout << "Game !" << endl << endl;
 
     string nom = "testCreation";
@@ -13,7 +14,7 @@ int main(int argc, char const *argv[])
         nom = argv[1];
 
     Jeux j {nom};
-    
+
     char c;
     bool continuer = true;
     while(continuer)

@@ -1,19 +1,16 @@
-#ifndef MONSTRE
-#define MONSTRE
+#ifndef MEGAMONSTRE
+#define MEGAMONSTRE
 
-#include "Pion.hpp"
+#include "Monstre.hpp"
 
-class Monstre : public Pion{
-protected:
-    bool bouge;
-    bool diamant;
-    bool chargeur;
+class MegaMonstre : public Monstre{
+private:
 
 public:
-    Monstre (int x, int y);
+    MegaMonstre (int x, int y);
     //virtual ~Monstre ();
 
-    virtual void resetBouge();
+    //virtual void resetBouge();
 
     virtual bool moving(int x, int y, Plateau& p); // retourne si joueur manger
     virtual bool teleport(int x, int y, Plateau& p); // retourne si joueur manger

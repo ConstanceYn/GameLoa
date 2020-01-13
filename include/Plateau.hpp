@@ -11,6 +11,8 @@
 #include "Chargeur.hpp"
 #include "Joueur.hpp"
 #include "Monstre.hpp"
+#include "MonstreNul.hpp"
+#include "MegaMonstre.hpp"
 
 using namespace std;
 

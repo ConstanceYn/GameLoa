@@ -13,7 +13,7 @@ char Pion::getSymbole() const
 {
     return symbole;
 }
-/*
+
 int Pion::getI() const
 {
     return i;
@@ -23,7 +23,7 @@ int Pion::getJ() const
 {
     return j;
 }
-*/
+
 void Pion::setSymbole(char c)
 {
     symbole = c;
@@ -41,24 +41,7 @@ bool Pion::move(const int x, const int y, Plateau p)
 
 bool Pion::moving(const int x, const int y, Plateau& p)
 {
-    cout << "Let's NOT move" << endl;
-    cout << symbole << endl;
-    bool b = move(x, y, p);
-    if (b){
-        int csti = i;
-        int cstj = j;
-        i = x;
-        j = y;
-        // CODER NOUVEAU DEPLACEMENT
-        // SI CASE CIBLE $ OU *, FAIRE ACTION DE CES CASES
-
-
-        //p.getCase(x, y)->addPion(*this); // déplace pion dans sa nouvelle case
-        // add à revoir car pas tester pour l'instant (oui ou non * ?)
-
-        //p.getCase(csti, cstj)->removePion(); // retire pion de son ancienne case
-    }
-    return b;
+    return false;
 }
 
 void Pion::actionPion(Personne p){}
