@@ -129,17 +129,19 @@ void newPlateau(string str)
     while (continuer || !(porte) || !(diam))
     {
         if(!continuer)
-            cout << "Mettez au moins une porte et un diamant !"<< endl << endl; 
+            cout << "Mettez au moins une porte et un diamant !"<< endl << endl;
         cout << "Que voulez vous ajouter ? (Entrez un nombre)" << endl;
         cout << "1- une porte" << endl;
-        cout << "2- un monstre" << endl;
-        cout << "3- un mur" << endl;
-        cout << "4- un diamant (d'innocence)" << endl;
-        cout << "5- un chargeur" << endl;
+        cout << "2- un mur" << endl;
+        cout << "3- un diamant (d'innocence)" << endl;
+        cout << "4- un chargeur" << endl;
+        cout << "5- un monstre" << endl;
+        cout << "6- un monstre pas très intelligent" << endl;
+        cout << "7- un monstre aléatoire" << endl;
         cin >> choix;
         char symbole = parse(choix, &porte, &diam);
 
-        if (choix <=5 && choix >= 1)
+        if (choix <=7 && choix >= 1)
         {
             cout << "À quel endroit ?" << endl;
             cout << "abscisse (0 à "<< x-1 <<") = ";
@@ -169,12 +171,14 @@ char parse(int n, bool *p, bool *d)
         case 1:
             *p = true;
             return '-';
-        case 2: return 'm';
-        case 3: return 'X';
-        case 4:
+        case 2: return 'X';
+        case 3:
             *d = true;
             return '$';
-        case 5: return '*';
+        case 4: return '*';
+        case 5: return 'm';
+        case 6: return 'n';
+        case 7: return 'M';
         default: return ' ';
     }
 }
